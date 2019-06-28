@@ -1,0 +1,1 @@
+This is a simple todo-like app for members of freeCodeCamp Elk Grove to post an introduction message about themselves
