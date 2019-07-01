@@ -1,0 +1,13 @@
+.button {
+    background: none;
+    border: none;
+    height: 2.5rem;
+    margin: 0 2.5rem;
+    font-size: $default-font-size;
+    color: $color-white-1;
+    cursor: pointer;
+
+    &__emphasize {
+        margin-left: 0;
+    }
+}

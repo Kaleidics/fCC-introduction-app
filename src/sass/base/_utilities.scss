@@ -1,0 +1,18 @@
+.u-center-text { text-align: center; }
+
+.u-margin-bottom-big { margin-bottom: 8rem; }
+.u-margin-bottom-medium { margin-bottom: 4rem; }
+.u-margin-bottom-small { margin-bottom: 1.5rem; }
+
+.u-margin-top-big { margin-bottom: 8em; }
+.u-margin-top-huge { margin-bottom: 10em; }
+
+.u-default-text-shadow{ text-shadow: $default-text-shadow; }
+
+.u-animate-bottom-normal {
+    animation: moveInBottom 1.5s ease-in .75s backwards;
+}
+
+.u-animate-bottom-slower {
+    animation: moveInBottom 1.5s ease-in .75s backwards;
+}
