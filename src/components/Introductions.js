@@ -1,39 +1,15 @@
 import React from "react";
-import { API_INTRO_URL } from "../config";
+import { connect } from 'react-redux';
+import { fetchIntros } from '../actions/index';
 
-export default class Introductions extends React.Component {
-    state = {
-        introductions: []
-    };
+export class Introductions extends React.Component {
 
     componentDidMount() {
-        this.loadIntroductions();
-    }
-
-    loadIntroductions() {
-
-        return fetch(API_INTRO_URL)
-            .then(res => {
-                if (!res.ok) {
-                    return Promise.reject(res.statusText);
-                }
-                return res.json();
-            })
-            .then(intros => {
-                this.setState({
-                    introductions: intros
-                });
-            })
-            .catch(err => {
-                this.setState({
-                    error: "Could not load intros",
-                });
-            });
+        this.props.dispatch(fetchIntros());
     }
 
     render() {
-        let rawIntros = [...this.state.introductions]
-        console.log(rawIntros);
+        console.log(this.props.intros);
         return (
             <div>
                 hi
@@ -41,3 +17,9 @@ export default class Introductions extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    intros: state.intros
+});
+
+export default connect(mapStateToProps)(Introductions)
