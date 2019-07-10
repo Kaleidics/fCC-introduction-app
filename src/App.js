@@ -2,14 +2,18 @@ import React from 'react';
 import './sass/main.scss';
 import Header from './components/Header';
 import Introductions from './components/Introductions';
+import Signup from './components/Signup';
 
-function App() {
-  return (
-      <div className="App">
-          <Header />
-          <Introductions />
-      </div>
-  );
+export default class App extends React.Component() {
+
+  render() {
+    return (
+        <div className="App">
+            <Header />
+            <Introductions />
+            <Signup />
+        </div>
+    );
+  }
 }
 
-export default App;

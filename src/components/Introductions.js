@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { fetchIntros } from '../actions/index';
 
-export class Introductions extends React.Component {
+class Introductions extends React.Component {
 
     componentDidMount() {
         this.props.dispatch(fetchIntros());

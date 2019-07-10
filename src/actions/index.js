@@ -1,4 +1,4 @@
-import { API_INTRO_URL } from "../config";
+import { API_BASE_URL, API_INTRO_URL } from "../config";
 
 export const FETCH_INTROS_SUCCESS = "FETCH_INTROS_SUCCESS";
 export const fetchIntrosSuccess = intros => ({
@@ -20,7 +20,7 @@ export const fetchIntros = () => dispatch => {
             dispatch(fetchIntrosSuccess(intros));
         })
         .catch(err => console.log(err));
-}
+};
 
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const registerUserSuccess = success => ({
@@ -29,7 +29,7 @@ export const registerUserSuccess = success => ({
 });
 
 export const registerUser = credentials => dispatch => {
-    const url = API + `/users/register`;
+    const url = API_BASE_URL + `/users/register`;
 
     return (
         fetch(url, {
@@ -53,6 +53,7 @@ export const registerUser = credentials => dispatch => {
                     return response
                         .json()
                         .then(response => {
+                            //Using alert for now, needs a universal UI notifier for error message
                             alert(`${response.location.toUpperCase()} ${response.message.toUpperCase()}`);
                         })
                         .catch(err => console.log(err));
@@ -61,4 +62,39 @@ export const registerUser = credentials => dispatch => {
             })
             .catch(err => console.log(err))
     );
+};
+
+export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
+export const loginUserSuccess = success => ({
+    type: LOGIN_USER_SUCCESS,
+    success
+});
+
+export const loginUser = credientials => dispatch => {
+    const url = API_BASE_URL + `/auth/login`;
+
+    return fetch(url, {
+        method: "POST",
+        body: JSON.stringify(credientials),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(response => {
+        const authToken = response.authtoken;
+        const userId = response.userid;
+        localStorage.setItem("localtoken", authToken);
+        localStorage.setItem("authedUser", userId);
+    })
+    .then(response => {
+        if (localStorage.getItem("localtoken")) {
+            dispatch(loginUserSuccess(true));
+            //Need to set a UI update here to show login was success
+        }
+    })
+    .catch(err => {
+        //Using alert for now, but needs a universal Error component, which we will pass the error message to
+        alert("USERNAME OR PASSWORD DO NOT MATCH");
+    })
 };
