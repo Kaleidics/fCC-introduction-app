@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Introductions from './components/Introductions';
 import Signup from './components/Signup';
 
-export default class App extends React.Component() {
+export default class App extends React.Component {
 
   render() {
     return (

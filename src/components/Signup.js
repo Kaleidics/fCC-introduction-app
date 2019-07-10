@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { registerUser } from "../actions/index";
 
-class Signup extends React.Component() {
+class Signup extends React.Component {
     constructor(props) {
         super(props);
 
