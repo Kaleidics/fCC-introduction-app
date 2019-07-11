@@ -1,8 +1,7 @@
 .button {
-    background: none;
-    border: none;
-    border-bottom: .3rem solid transparent;
-    height: 2.5rem;
+    background: transparent;
+    border: .3rem solid $color-purple-1;
+    padding: 1rem;
     margin: 0 2.5rem;
     font-size: $default-font-size;
     color: $color-white-1;
