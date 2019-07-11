@@ -16,6 +16,7 @@ class Signup extends React.Component {
 
     handleRegister = e => {
         e.preventDefault();
+        console.log("submitted")
         this.props.registerUser(this.state);
     }
 
@@ -25,15 +26,16 @@ class Signup extends React.Component {
            <form onSubmit={this.handleRegister}>
                <fieldset>
                    <legend>Sign Up</legend>
-                   <label for="email">Email</label>
+                   <label htmlFor="email">Email</label>
                    <input id="email" type="email" onChange={e => this.setState({ email: e.target.value })} required></input>
-                   <label for="password" type="text">Password</label>
+                   <label htmlFor="password" type="text">Password</label>
                    <input id="password" type="text" onChange={e => this.setState({ password: e.target.value })} required></input>
-                   <label id="firstname">Firstname</label>
+                   <label htmlFor="firstname">Firstname</label>
                    <input id="firstname" type="text" onChange={e => this.setState({ firstname: e.target.value })}></input>
-                   <label id="lastname">Lastname</label>
+                   <label htmlFor="lastname">Lastname</label>
                    <input id="lastname" type="text" onChange={e => this.setState({ lastname: e.target.value })}></input>
                </fieldset>
+               <button className="button">Sign Up</button>
            </form>
         )
     }
