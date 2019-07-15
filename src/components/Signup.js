@@ -7,7 +7,7 @@ class Signup extends React.Component {
         super(props);
 
         this.state = {
-            email: "",
+            username: "",
             password: "",
             firstname: "",
             lastname: ""
@@ -22,22 +22,26 @@ class Signup extends React.Component {
 
 
     render() {
-        return(
-           <form onSubmit={this.handleRegister}>
-               <fieldset>
-                   <legend>Sign Up</legend>
-                   <label htmlFor="email">Email</label>
-                   <input id="email" type="email" onChange={e => this.setState({ email: e.target.value })} required></input>
-                   <label htmlFor="password" type="text">Password</label>
-                   <input id="password" type="text" onChange={e => this.setState({ password: e.target.value })} required></input>
-                   <label htmlFor="firstname">Firstname</label>
-                   <input id="firstname" type="text" onChange={e => this.setState({ firstname: e.target.value })}></input>
-                   <label htmlFor="lastname">Lastname</label>
-                   <input id="lastname" type="text" onChange={e => this.setState({ lastname: e.target.value })}></input>
-               </fieldset>
-               <button className="button">Sign Up</button>
-           </form>
-        )
+        return (
+            <div className="popup">
+                <form className="form" onSubmit={this.handleRegister}>
+                    <fieldset className="form__fields">
+                        <legend>Create Account</legend>
+                        <label htmlFor="email">Email</label>
+                        <input id="email" type="email" onChange={e => this.setState({ username: e.target.value })} required />
+                        <label htmlFor="password" type="text">
+                            Password
+                        </label>
+                        <input id="password" type="text" onChange={e => this.setState({ password: e.target.value })} required />
+                        <label htmlFor="firstname">Firstname</label>
+                        <input id="firstname" type="text" onChange={e => this.setState({ firstname: e.target.value })} />
+                        <label htmlFor="lastname">Lastname</label>
+                        <input id="lastname" type="text" onChange={e => this.setState({ lastname: e.target.value })} />
+                    </fieldset>
+                    <button className="button">Sign Up</button>
+                </form>
+            </div>
+        );
     }
 }
 

@@ -3,6 +3,7 @@ import './sass/main.scss';
 import Header from './components/Header';
 import Introductions from './components/Introductions';
 import Signup from './components/Signup';
+import Login from './components/Login';
 
 export default class App extends React.Component {
 
@@ -12,6 +13,7 @@ export default class App extends React.Component {
             <Header />
             <Introductions />
             <Signup />
+            <Login />
         </div>
     );
   }

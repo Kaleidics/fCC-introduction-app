@@ -30,7 +30,7 @@ export const registerUserSuccess = success => ({
 
 export const registerUser = credentials => dispatch => {
     const url = API_BASE_URL + `/users/register`;
-
+    console.log(url);
     return (
         fetch(url, {
             method: "POST",
@@ -54,7 +54,7 @@ export const registerUser = credentials => dispatch => {
                         .json()
                         .then(response => {
                             //Using alert for now, needs a universal UI notifier for error message
-                            alert(`${response.location.toUpperCase()} ${response.message.toUpperCase()}`);
+                            alert(`${response.message.toUpperCase()}`);
                         })
                         .catch(err => console.log(err));
                 }
